@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Diya Network</title>
-<meta name="description" content="AI-luminated Diwali: a network of diyas teaches itself to draw a diya, live in your browser. A Diwali lesson in how AI learns, from Dr. Abhishek Panda and the Digital &amp; AI Fluency Clinic for Healthcare Professionals.">
+<meta name="description" content="Happy AI-luminated Diwali: a network of diyas teaches itself to draw a diya, live in your browser. A Diwali lesson in how AI learns, from Dr. Abhishek Panda and the Digital &amp; AI Fluency Clinic for Healthcare Professionals.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI-luminated Diwali: The Diya Network">
+<meta property="og:title" content="Happy AI-luminated Diwali: The Diya Network">
 <meta property="og:description" content="A network of diyas learns to draw a diya, live in your browser. A Diwali lesson in how AI learns.">
 <meta property="og:url" content="https://dr-abhishekpanda.github.io/diwali-2026/">
 <meta property="og:image" content="https://dr-abhishekpanda.github.io/diwali-2026/og-ai-luminated-diwali.jpg">
@@ -139,6 +139,7 @@ tbody th{font-weight:600}
 .closing h2 em{font-style:italic;color:var(--flame)}
 .closing p{color:var(--on-night-soft);margin:0}
 .closing .actions .btn{min-width:10em}
+.nw{white-space:nowrap}
 .share{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start;margin-top:28px}
 @media (min-width: 760px){ .share{grid-template-columns:minmax(0,1fr) minmax(0,320px)} }
 .share h3{margin:0 0 .3em}
@@ -168,7 +169,7 @@ footer address strong{color:var(--ink);font-weight:600}
 <main>
 <section class="hero" aria-labelledby="t-hero">
   <div class="copy">
-    <h1 id="t-hero"><span class="it">AI-luminated<br>Diwali,</span> <span class="sub">from a Network of <em>Diyas</em></span></h1>
+    <h1 id="t-hero"><span class="it">Happy<br>AI-luminated<br>Diwali,</span> <span class="sub">from a Network of <em>Diyas</em></span></h1>
     <p class="lead">Every diya on this page is an artificial Neuron. Wired together, they learn to draw a diya, right here in your browser.<br>Five short steps take you from one flame to the idea behind ChatGPT.</p>
     <div class="actions">
       <a class="btn primary" href="#neuron">Start with One Diya</a>
@@ -348,11 +349,11 @@ footer address strong{color:var(--ink);font-weight:600}
   <div class="night">
     <canvas id="closingCanvas" role="img" aria-label="The diya the network learned to draw, lit and flickering."></canvas>
     <div class="say">
-      <h2 id="t6">AI-luminated <em>Diwali</em></h2>
+      <h2 id="t6">Happy <span class="nw">AI-luminated</span> <em>Diwali</em></h2>
       <p>An old prayer from the Brihadaranyaka Upanishad (1.3.28) asks, "Lead me from darkness to light."<br>Every Epoch of training is a small step in that direction, with a little less error and a little more light.</p>
       <p>May this Diwali bring light, health and learning to you and your families.</p>
       <div class="actions">
-        <a class="btn primary" id="waShare" href="https://wa.me/?text=AI-luminated%20Diwali" target="_blank" rel="noopener">Share on WhatsApp</a>
+        <a class="btn primary" id="waShare" href="https://wa.me/?text=Happy%20AI-luminated%20Diwali" target="_blank" rel="noopener">Share on WhatsApp</a>
         <button class="btn" type="button" id="copyBtn" hidden>Copy Link</button>
       </div>
       <p class="hint" id="copySay" aria-live="polite" style="font-size:.88em"></p>
@@ -363,9 +364,9 @@ footer address strong{color:var(--ink);font-weight:600}
       <h3>Watch and Share</h3>
       <p>The 90-second film follows the same network from one diya to a trained lamp.<br>Forward it, or post the images on WhatsApp.</p>
       <ul class="dl">
-        <li><a href="ai-luminated-diwali-2026.mp4" download>Video, MP4 (vertical, with sound)</a></li>
-        <li><a href="ai-luminated-diwali-status-1080x1920.jpg" download>Status Image, 1080 × 1920</a></li>
-        <li><a href="ai-luminated-diwali-card-1080x1620.jpg" download>Five Diyas Card, 1080 × 1620</a></li>
+        <li><a href="ai-luminated-diwali-2026.mp4" download="Happy-AI-luminated-Diwali-2026.mp4">Video, MP4 (vertical, with sound)</a></li>
+        <li><a href="ai-luminated-diwali-status-1080x1920.jpg" download="Happy-AI-luminated-Diwali-Status-1080x1920.jpg">Status Image, 1080 × 1920</a></li>
+        <li><a href="ai-luminated-diwali-card-1080x1720.jpg" download="Happy-AI-luminated-Diwali-Card-1080x1720.jpg">Five Diyas Card, 1080 × 1720</a></li>
       </ul>
       <p class="hint" id="dlSay" aria-live="polite" style="font-size:.88em;color:var(--ink-soft)"></p>
     </div>
@@ -1074,7 +1075,7 @@ footer address strong{color:var(--ink);font-weight:600}
       try {
         say.textContent = 'Preparing the file...';
         const blob = await (await fetch(a.getAttribute('href'))).blob();
-        await dl.save({ filename: a.getAttribute('href'), data: blob });
+        await dl.save({ filename: a.getAttribute('download') || a.getAttribute('href'), data: blob });
         say.textContent = 'Saved.';
       } catch (e) {
         say.textContent = e && e.code === 'declined' ? 'Download cancelled.' : 'This view cannot save files. Downloads open on dr-abhishekpanda.github.io/diwali-2026/.';
@@ -1086,7 +1087,7 @@ footer address strong{color:var(--ink);font-weight:600}
   (function share() {
     const host = location.hostname || '', here = location.href.split('#')[0];
     const shareable = /^https:/.test(location.protocol) && !/claude|anthropic|usercontent|sandbox|localhost/i.test(host) ? here : '';
-    const text = 'AI-luminated Diwali! A network of diyas learns to draw a diya, and teaches the basics of AI along the way.' + (shareable ? ' ' + shareable : '');
+    const text = 'Happy AI-luminated Diwali! A network of diyas learns to draw a diya, and teaches the basics of AI along the way.' + (shareable ? ' ' + shareable : '');
     document.getElementById('waShare').href = 'https://wa.me/?text=' + encodeURIComponent(text);
     const copy = document.getElementById('copyBtn'), say = document.getElementById('copySay');
     if (shareable) {
